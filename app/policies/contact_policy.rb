@@ -15,6 +15,10 @@ class ContactPolicy < ApplicationPolicy
     true
   end
 
+  def filter?
+    true
+  end
+
   def update?
     true
   end
@@ -29,5 +33,9 @@ class ContactPolicy < ApplicationPolicy
 
   def create?
     true
+  end
+
+  def destroy?
+    @account_user.administrator?
   end
 end
